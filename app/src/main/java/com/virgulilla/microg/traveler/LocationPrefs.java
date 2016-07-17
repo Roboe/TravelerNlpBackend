@@ -4,6 +4,8 @@ import android.content.Context;
 
 public class LocationPrefs extends Prefs {
 
+    private String LOG_STRING = "Latitude: %s | Longitude: %s";
+
     protected enum GeoKey {
         LATITUDE_ORIGIN, LONGITUDE_ORIGIN
     }
@@ -23,7 +25,8 @@ public class LocationPrefs extends Prefs {
         double[] originLocation = {
                 getDouble(GeoKey.LATITUDE_ORIGIN, 40.41687),
                 getDouble(GeoKey.LONGITUDE_ORIGIN, -3.70339)
-        };
+        }; // Sol - Madrid
+        Prefs.log(String.format(LOG_STRING, originLocation[0], originLocation[1]));
         return originLocation;
     }
 

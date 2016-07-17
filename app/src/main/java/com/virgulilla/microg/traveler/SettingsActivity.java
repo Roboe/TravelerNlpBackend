@@ -2,12 +2,10 @@ package com.virgulilla.microg.traveler;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 public class SettingsActivity extends AppCompatActivity {
 
     double[] coordinates;
-    String TEST_STRING = "Latitude: %s | Longitud: %s";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +17,10 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        LocationPrefs prefs = LocationPrefs.getInstance(this);
+        LocationPrefs prefs = LocationPrefs.getInstance(getApplicationContext());
         coordinates = prefs.getOriginLocation();
-        Log.i("test", String.format(TEST_STRING, coordinates[0], coordinates[1]));
 
-        prefs.setOriginLocation(40.42371, -3.71578);
+        prefs.setOriginLocation(40.42412, -3.71733); // Templo de Debod
         coordinates = prefs.getOriginLocation();
-        Log.i("test", String.format(TEST_STRING, coordinates[0], coordinates[1]));
     }
 }

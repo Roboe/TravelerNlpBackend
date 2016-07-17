@@ -3,10 +3,13 @@ package com.virgulilla.microg.traveler;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 public abstract class Prefs {
 
+    protected static String TAG = "traveler_log";
     protected static Prefs instance;
+
     protected SharedPreferences mPref;
     protected SharedPreferences.Editor mEditor;
     protected boolean mBulkUpdate = false;
@@ -153,4 +156,10 @@ public abstract class Prefs {
         }
     }
 
+
+    protected static void log(String message) {
+        if (BuildConfig.DEBUG) {
+            Log.v(TAG, message);
+        }
+    }
 }
