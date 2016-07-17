@@ -9,7 +9,7 @@ public class BackendService extends LocationBackendService {
 
     @Override
     protected Location update() {
-        Location location = LocationHelper.create("Sol - Madrid", 40.41660, -3.70382, 42);
+        Location location = LocationHelper.create("traveler", 40.41660, -3.70382, 42); // Sol - Madrid
         return location;
     }
 }
