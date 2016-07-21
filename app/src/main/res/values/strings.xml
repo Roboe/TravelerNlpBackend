@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Traveler Nlp Backend</string>
+
+    <string name="latitude_origin">Latitude origin:</string>
+    <string name="longitude_origin">Longitude origin:</string>
+    <string name="update_location">Update location</string>
 </resources>
