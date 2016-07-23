@@ -3,5 +3,7 @@
 
     <string name="latitude_origin">Latitude origin:</string>
     <string name="longitude_origin">Longitude origin:</string>
-    <string name="update_location">Update location</string>
+    <string name="wander_around">Wander around set location</string>
+    <string name="wandering_max_radius">Max wandering radius:</string>
+    <string name="update_location">Update location and save settings</string>
 </resources>

@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.util.Locale;
+
 public abstract class Prefs {
 
     protected static String TAG = "traveler_log";
@@ -157,9 +159,9 @@ public abstract class Prefs {
     }
 
 
-    protected static void log(String message) {
+    protected static void log(String message, Object... args) {
         if (BuildConfig.DEBUG) {
-            Log.v(TAG, message);
+            Log.v(TAG, String.format(Locale.getDefault(), message, args));
         }
     }
 }

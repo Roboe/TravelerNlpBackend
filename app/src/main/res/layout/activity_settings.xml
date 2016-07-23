@@ -39,6 +39,24 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal|numberSigned" />
 
+        <CheckBox
+            android:id="@+id/wander_around"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wander_around" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/wandering_max_radius"
+            android:text="@string/wandering_max_radius" />
+
+        <EditText
+            android:id="@+id/wandering_max_radius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+
         <Button
             android:id="@+id/update_location"
             android:layout_width="wrap_content"

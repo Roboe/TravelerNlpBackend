@@ -4,10 +4,17 @@ import android.content.Context;
 
 public class LocationPrefs extends Prefs {
 
-    private String LOG_STRING = "Latitude: %s | Longitude: %s";
+    public static final double LATITUDE_ORIGIN_DEFAULT = 40.41687;
+    public static final double LONGITUDE_ORIGIN_DEFAULT = -3.70339;
+    public static final boolean WANDER_AROUND_DEFAULT = true;
+    public static final double WANDERING_MAX_RADIUS_DEFAULT = 0.0001;
+
+    public static final String LOG_LOCATION = "Latitude: %f | Longitude: %f";
+    public static final String LOG_WANDERING = "Wandering: %f° lat | %fº lon";
 
     protected enum GeoKey {
-        LATITUDE_ORIGIN, LONGITUDE_ORIGIN
+        LATITUDE_ORIGIN, LONGITUDE_ORIGIN,
+        WANDER_AROUND, WANDERING_MAX_RADIUS
     }
 
     private LocationPrefs(Context context) {
@@ -23,10 +30,10 @@ public class LocationPrefs extends Prefs {
 
     public double[] getOriginLocation() {
         double[] originLocation = {
-                getDouble(GeoKey.LATITUDE_ORIGIN, 40.41687),
-                getDouble(GeoKey.LONGITUDE_ORIGIN, -3.70339)
+                getDouble(GeoKey.LATITUDE_ORIGIN, LATITUDE_ORIGIN_DEFAULT),
+                getDouble(GeoKey.LONGITUDE_ORIGIN, LONGITUDE_ORIGIN_DEFAULT)
         }; // Sol - Madrid
-        Prefs.log(String.format(LOG_STRING, originLocation[0], originLocation[1]));
+        Prefs.log(LOG_LOCATION, originLocation[0], originLocation[1]);
         return originLocation;
     }
 
@@ -37,6 +44,22 @@ public class LocationPrefs extends Prefs {
     public void setOriginLocation(double latitude, double longitude) {
         put(GeoKey.LATITUDE_ORIGIN, latitude);
         put(GeoKey.LONGITUDE_ORIGIN, longitude);
+    }
+
+    public boolean isWanderingAroundEnabled() {
+        return getBoolean(GeoKey.WANDER_AROUND, WANDER_AROUND_DEFAULT);
+    }
+
+    public void setWanderAround(boolean value) {
+        put(GeoKey.WANDER_AROUND, value);
+    }
+
+    public double getWanderingMaxRadius() {
+        return getDouble(GeoKey.WANDERING_MAX_RADIUS, WANDERING_MAX_RADIUS_DEFAULT);
+    }
+
+    public void setWanderingMaxRadius(double value) {
+        put(GeoKey.WANDERING_MAX_RADIUS, value);
     }
 
 }
